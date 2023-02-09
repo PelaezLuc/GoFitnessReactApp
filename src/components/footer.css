@@ -1,0 +1,10 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    height: 10vh;
+    text-transform: uppercase;
+
+}

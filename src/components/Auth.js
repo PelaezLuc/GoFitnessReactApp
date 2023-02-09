@@ -1,3 +1,5 @@
+import './headerNav.css';
+
 export const Auth = () => {
     return (
         <ul>

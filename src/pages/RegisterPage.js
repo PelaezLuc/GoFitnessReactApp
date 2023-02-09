@@ -1,3 +1,5 @@
+import './form.css';
+
 export const RegisterPage = () => {
     return (
         <section class="form-register">

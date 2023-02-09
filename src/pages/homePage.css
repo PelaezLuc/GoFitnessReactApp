@@ -1,0 +1,50 @@
+#landing {
+    height: 80vh;
+    padding: 4rem;
+    background-image: url(../../public/image/landing_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.landing-div {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 10vw;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    margin-right: 1.5rem;
+}
+
+.landing-button {
+    padding: 14px;
+    text-transform: uppercase;
+    width: 125px;
+    font-weight: bolder;
+    border: none;
+    color:white;
+    background: linear-gradient(145deg, #686868, #e1d7c8);
+    box-shadow: 6px 6px 20px -1px #d5cbbd,
+        -6px -6px 20px -1px #ffffff;
+}
+
+form{
+    width: 500px;
+    box-shadow: 5px 5px 17px 2px #000;
+    padding: 2rem;
+    
+
+}
