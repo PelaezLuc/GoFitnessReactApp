@@ -1,13 +1,7 @@
-import { Auth } from "./Auth";
-
-
 export const Header = () => {
     return (
         <header>
-            <span>GoFitness #</span>
-            <nav>
-                <Auth />
-            </nav>
+            <h1>GoFitness<span class="font-family-app">APP</span></h1>
         </header>
     )
 }

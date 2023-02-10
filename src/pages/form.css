@@ -1,37 +1,45 @@
-
 .form-register {
-    height: 80vh;
+    height: 90vh;
     background: rgb(245, 245, 245, 0.714);
-    padding: 2rem;
-    border-radius: 5px;
     font-family: 'calibri';
-    color: black;
+    color: whitesmoke;
+    background-color: black;
     text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-image: url(../../public/image/bg-form.jpg);
-    background-position: 90% 10%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+}
+
+h2 {
+    font-family: 'Covered By Your Grace';
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #f03835; 
+}
+
+.font-family-app {
+    font-family: 'Anton';
+    font-size: 2rem;
 }
 
 form{
     width: 500px;
     padding: 2rem;
-    background-color: white;
-    margin-left: 17vw;
+    background-color: rgba(74, 74, 74, 0.213);
+    border-radius: 5px;
 }
 
 h4 {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin: 2rem 0;
 }
 
 .controls {
+    color: white;
     width: 100%;
     background-color: rgba(69, 165, 255);
-    background: rgb(245, 245, 245);
+    background: rgba(74, 74, 74, 0.213);
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 3rem;
@@ -42,8 +50,8 @@ h4 {
 }
 
 .controls:focus {
-    outline: 2px solid rgba(69, 165, 255);
-
+    outline: 6px solid rgba(69, 165, 255);
+    outline: 4px solid rgba(69, 165, 255);
 }
 
 .form-register p {
@@ -53,7 +61,7 @@ h4 {
 }
 
 .form-register a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -65,7 +73,9 @@ h4 {
 .form-register .btn {
     width: 100%;
     background-color: rgba(69, 165, 255);
+    background-color: rgb(240 56 53);
     border: none;
+    border-radius: 5px;
     padding: 12px;
     color: white;
     margin: 16px 0;

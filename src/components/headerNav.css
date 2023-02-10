@@ -1,9 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Covered+By+Your+Grace&display=swap');
 
-ul{
+.nav-list {
     display: flex;
     list-style: none;
+    justify-content: flex-start;
 }
 
-li {
-    padding: 0 16px
+.nav-list-item {
+    padding: 0 4vw;
+    width: 100px;
+    font-size: 18px;
+    font-family: 'Anton';
+    letter-spacing: 2px;
+    line-height: 10.5vh;
 }
+
+.nav-list-item:hover {
+    cursor: pointer;
+    transition: ease-in;
+    font-size: 20px;
+}
+
+
+h1 {
+    color: black !important;
+    font-size: 40px;
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+h2 {
+    font-family: 'Arial';
+}
+
+.font-family {
+    font-size: 26px;
+    font-family: 'Anton';
+    font-weight: 700;
+}
+

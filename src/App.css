@@ -1,12 +1,14 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Covered+By+Your+Grace&display=swap');
 
 header {
   display: flex;
   justify-content: space-between;
+  padding: 0 10vw;
   height: 10vh;
   line-height: 10vh;
-  padding: 0 1rem;
   background-color: rgba(0, 132, 255);
+  background-color: #ed504d;
+  background-color: #f03835;
 }
 
 

@@ -1,10 +1,40 @@
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(20, 20, 20);
+    padding-bottom: 6rem;
+    background-color: #f03835;
+    background-color: rgb(0, 0, 0);
+    font-size: 12px;
     color: white;
-    height: 10vh;
     text-transform: uppercase;
+}
 
+footer p:first-child {
+    line-height: 11vh;
+}
+
+footer h3 {
+    font-size: 12px;
+}
+
+.footer-info-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.footer-info-list > li > p{
+    display: flex;
+    font-size: 12px;
+}
+
+.contact-list-items {
+    width: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
 }
