@@ -1,6 +1,4 @@
-import './headerNav.css';
-
-export const Auth = () => {
+export const HeaderNav = () => {
     return (
         <ul class="nav-list">
             <li class="nav-list-item">Login</li>
@@ -8,3 +6,12 @@ export const Auth = () => {
         </ul>
     )
 }
+
+
+
+
+//para el admin
+/* <ul>
+            <li>Add Exercise</li>
+            <li>Edit Exercise</li>
+        </ul> */

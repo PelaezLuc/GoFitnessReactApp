@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { RegisterPage } from './pages/RegisterPage';
 import { LoginPage } from './pages/LoginPage';
+import { ExerciseListPage } from './pages/ExerciseListPage';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/exercises' element={<ExerciseListPage />} />
       </Routes> 
       <Footer />  
     </main>   
