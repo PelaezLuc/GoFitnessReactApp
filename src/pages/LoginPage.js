@@ -11,7 +11,7 @@ export const LoginPage = () => {
                 <label for="password"></label>
                 <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"/>
                 <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <input class="btn" type="submit" value="Registrar"/>
+                <input class="btn" type="submit" value="Iniciar Sesión"/>
             </form>
         </section>
     )

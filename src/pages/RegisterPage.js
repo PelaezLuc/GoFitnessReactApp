@@ -15,7 +15,7 @@ export const RegisterPage = () => {;
                 <input class="controls" type="email" name="email" id="email" placeholder="Email"/>
                 <label for="password"></label>
                 <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"/>
-                <Link to='/exercises'>¿Ya tienes una cuenta?</Link>
+                <Link to='/login'>¿Ya tienes una cuenta?</Link>
                 <input class="btn" type="submit" value="Registrar"/>
             </form>
         </section>

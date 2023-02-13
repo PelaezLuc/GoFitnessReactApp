@@ -13,6 +13,7 @@
     font-family: 'Anton';
     letter-spacing: 2px;
     line-height: 10.5vh;
+    font-style: none;
 }
 
 .nav-list-item:hover {

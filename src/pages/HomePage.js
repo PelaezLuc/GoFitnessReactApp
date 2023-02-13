@@ -1,5 +1,6 @@
 import './homePage.css'
 import { Header } from '../components/Header'
+import { Link } from 'react-router-dom'
 
 export const HomePage = () => {
     return (
@@ -12,9 +13,12 @@ export const HomePage = () => {
                 <p>Crea y analiza tus experiencias de entrenamiento</p>
 
                 <div className='btn-container'>
-                    <button className="landing-button">Login</button>
-
-                    <button className="landing-button">Registro</button>
+                    <Link to={'/login'}>
+                        <button className="landing-button">Login</button>
+                    </Link>
+                    <Link to={'/register'}>
+                        <button className="landing-button">Registro</button>
+                    </Link>
                 </div>
             </article>
         </section>
