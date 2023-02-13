@@ -1,0 +1,42 @@
+#exercise-list {
+
+    display: grid;
+    grid-template-columns: 15vw 85vw;
+
+}
+
+article > button{
+    padding: 14px;
+    text-transform: uppercase;
+    width: 100%;
+    height: fit-content;
+    font-weight: bolder;
+    border: none;
+    color:white;
+    background: linear-gradient(145deg, #686868, #e1d7c8);
+    box-shadow: 6px 6px 20px -1px #d5cbbd,
+        -6px -6px 20px -1px #ffffff;
+    
+}
+
+aside{
+    display: flex;
+    flex-grow: 1;
+    background-color: #686868;
+}
+
+article {
+    display: grid;
+    padding: 2rem;
+    grid-row-start: auto;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    height: 80vh;
+}
+
+ul{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    list-style: none;
+}
+

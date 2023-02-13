@@ -4,8 +4,10 @@ import "./exerciseListPage.css";
 
 export const ExerciseListPage = () => {
     return (
+        <>
+        <Header />
         <section id="exercise-list">
-            <Header />
+            
             <aside>
                 FILTROS Y DEMÁS
             </aside>
@@ -17,5 +19,6 @@ export const ExerciseListPage = () => {
             </article>
            
         </section>
+        </>
     )
 }
