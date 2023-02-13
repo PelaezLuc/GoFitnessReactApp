@@ -8,12 +8,12 @@ export const ExerciseListPage = () => {
         <Header />
         <section id="exercise-list">
             
-            <aside>
+            <aside className="filters">
                 FILTROS Y DEMÁS
             </aside>
-            <article>
-                <button>+ Añadir ejercicio</button>
-                <ul>
+            <article className="card-container">
+                <button className="btn-add-exercise">+ Añadir ejercicio</button>
+                <ul className="exercise-list">
                     <ExerciseCard />
                 </ul>
             </article>

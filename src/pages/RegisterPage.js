@@ -1,4 +1,5 @@
 import './form.css';
+import {Link} from 'react-router-dom';
 
 export const RegisterPage = () => {;
     return (
@@ -14,7 +15,7 @@ export const RegisterPage = () => {;
                 <input class="controls" type="email" name="email" id="email" placeholder="Email"/>
                 <label for="password"></label>
                 <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"/>
-                <p><a href="#">¿Ya tienes una cuenta?</a></p>
+                <Link to='/exercises'>¿Ya tienes una cuenta?</Link>
                 <input class="btn" type="submit" value="Registrar"/>
             </form>
         </section>

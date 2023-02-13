@@ -1,9 +1,15 @@
 export const ExerciseCardButtons = () => {
     return ( 
-        <ul>
-            <li><button>♥</button></li>
-            <li><button>♫</button></li>
-            <li><button>$</button></li>
+        <ul className="button-list">
+            <li className="card-btn-container">
+                <button className="card-button">♥</button>
+            </li>
+            <li className="card-btn-container">
+                <button className="card-button">♫</button>
+            </li>
+            <li className="card-btn-container">
+                <button className="card-button">$</button>
+            </li>
         </ul>
     )
 }

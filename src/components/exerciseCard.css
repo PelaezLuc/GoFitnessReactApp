@@ -9,12 +9,21 @@
     text-align: center;
 }
 
-li{
-    display: grid;
-    justify-items: right;
+.button-list{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    grid-template-columns: 1rem 1rem 1rem;
+    
 }
 
-button{
+.card-button{
     padding: 0.5rem;
     margin: 0.2rem;
+    font-weight: bolder;
+    border: none;
+    color:black;
+    background: linear-gradient(145deg, #686868, #e1d7c8);
+    box-shadow: 6px 6px 20px -1px #d5cbbd,
+        -6px -6px 20px -1px #ffffff;
 }

@@ -5,7 +5,7 @@
 
 }
 
-article > button{
+.btn-add-exercise{
     padding: 14px;
     text-transform: uppercase;
     width: 100%;
@@ -19,22 +19,22 @@ article > button{
     
 }
 
-aside{
+.filters{
     display: flex;
     flex-grow: 1;
-    background-color: #686868;
+    height: 80vh;
 }
 
-article {
+.card-container {
     display: grid;
     padding: 2rem;
     grid-row-start: auto;
     grid-template-rows: auto auto;
     justify-items: center;
-    height: 80vh;
+    
 }
 
-ul{
+.exercise-list{
     display: grid;
     grid-template-columns: auto auto auto;
     list-style: none;
