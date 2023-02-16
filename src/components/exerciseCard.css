@@ -1,12 +1,43 @@
-.card {
-    display: grid;
-    width: 250px;
-    height: 400px;
+.exercise-card-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.exercise-card {
+    width: 400px;
+    min-height: 400px;
     padding: 2rem;
-    margin: 1rem;
-    background-color: rgba(74, 74, 74, 0.213);
-    border-radius: 5px;
+    margin-right: 2rem;
+    background-color: rgba(74, 74, 74, 0.07);
+    background-color: transparent;
+    box-shadow: 0px 0px 4px 1px #00000077;
+    border-radius: 15px;
     text-align: center;
+    list-style: none;
+}
+
+.exercise-data-list {
+    list-style: none;
+}
+
+.data-list-item{
+    text-align: justify;
+}
+
+.data-list-item > h2 {
+    font-size: 1.25rem;
+    padding: 0;
+    margin-bottom: 2rem;
+    color: #f03835;
+    color:  grey;
+    color: black !important;
+    font-family: 'Anton';
+    text-align: center !important;
+    text-transform: uppercase;
+}
+
+.exercise-display-btn {
+    margin-top: 1.5rem;
 }
 
 .button-list{
@@ -23,7 +54,4 @@
     font-weight: bolder;
     border: none;
     color:black;
-    background: linear-gradient(145deg, #686868, #e1d7c8);
-    box-shadow: 6px 6px 20px -1px #d5cbbd,
-        -6px -6px 20px -1px #ffffff;
 }

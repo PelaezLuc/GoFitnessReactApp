@@ -1,42 +1,126 @@
-#exercise-list {
-
-    display: grid;
-    grid-template-columns: 15vw 85vw;
-
+.excercise-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 9vh;
+    padding: 0 4rem;
+    width: 100%;
+    line-height: 9vh;
+    border-bottom: 2px solid whitesmoke;
+    box-shadow: 0px 0px 4px 0px #00000077;
+    background-color: rgba(74, 74, 74, 0.07);
+    background-color: transparent;
 }
 
-.btn-add-exercise{
-    padding: 14px;
+#exercise-list {
+    padding: 3rem 3.4rem;
+    background-color: white;
+    min-height: 86vh;
+}
+
+.search-nav-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    background-color: transparent;
+}
+
+.search-container {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px 0px #00000077;
+}
+
+.filter-menu-item {
+    display: flex;
+}
+
+.filter-btn{
+    color: grey;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
     text-transform: uppercase;
     width: 100%;
     height: fit-content;
     font-weight: bolder;
+}
+
+.add-exercise-btn {
+    color: grey;
+    padding: 10px;
+    background-color: transparent;
     border: none;
-    color:white;
-    background: linear-gradient(145deg, #686868, #e1d7c8);
-    box-shadow: 6px 6px 20px -1px #d5cbbd,
-        -6px -6px 20px -1px #ffffff;
-    
+    text-transform: uppercase;
+    width: 100%;
+    height: fit-content;
+    font-weight: bolder;
+    width: fit-content;
+    padding: 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px 0px #00000077;
 }
 
-.filters{
+.item-slash {
+    width: 2px;
+    height: 1.5rem;
+    background-color: #e3e3e3;
+}
+
+.search-input {
+    font-size: 1rem;
+    padding: 4px;
+    border: none;
+    margin-right: 1rem;
+    border-bottom: 2px solid rgba(228, 225, 225, 0.647);;
+}
+
+.search-input:focus {
+   outline: none;
+}
+
+.excercise-header > .logo-app , .font-logo {
+    color:  #f03835;
+    color:  grey; 
+    color:  black !important; 
+}
+
+.font-logo {
+    font-family: 'Anton';
+    font-size: 1.5rem;
+}
+
+.exercise-list {
     display: flex;
-    flex-grow: 1;
-    height: 80vh;
+    flex-wrap: wrap;
+    padding: 4rem;
 }
 
-.card-container {
-    display: grid;
-    padding: 2rem;
-    grid-row-start: auto;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    
+.exercisePage-footer {
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    width: 100%;
+    height: 5vh;
+    box-shadow: 0px 0px 4px 0px #00000077;
+    padding: 0;
+    background-color: transparent;
 }
 
-.exercise-list{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    list-style: none;
+.exercisePage-footer > p {
+    color: grey;
+    padding-left: 3rem;
 }
+
+
+
+
+
+
+
 

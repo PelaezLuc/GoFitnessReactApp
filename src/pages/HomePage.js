@@ -1,6 +1,7 @@
 import './homePage.css'
 import { Header } from '../components/Header'
 import { Link } from 'react-router-dom'
+import { Footer } from '../components/Footer'
 
 export const HomePage = () => {
     return (
@@ -22,6 +23,7 @@ export const HomePage = () => {
                 </div>
             </article>
         </section>
+        <Footer />
         </>
     )
 }

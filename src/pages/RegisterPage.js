@@ -1,10 +1,13 @@
 import './form.css';
 import {Link} from 'react-router-dom';
+import { Footer } from '../components/Footer';
 
 export const RegisterPage = () => {;
     return (
+        <>
         <section class="form-register">
-             <h2>GoFitness<span class="font-family-app">APP</span></h2>    
+             <Link to={"/"}><h2>GoFit<span class="font-family-app">APP</span></h2>    
+               </Link>  
                 <h4>Regístrate</h4>
             <form action="">
                 <label for="nombre"></label>
@@ -19,5 +22,7 @@ export const RegisterPage = () => {;
                 <input class="btn" type="submit" value="Registrar"/>
             </form>
         </section>
+        <Footer />
+        </>
     )
 }

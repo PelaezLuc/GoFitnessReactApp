@@ -5,7 +5,7 @@ import './header.css'
 export const Header = () => {
     return (
         <header>
-            <h1 className='logo-app'>GoFitness<span class="font-family-app">APP</span></h1>
+            <h1 className='logo-app'>GoFit<span class="font-family-app">APP</span></h1>
             <HeaderNav />
         </header>
     )

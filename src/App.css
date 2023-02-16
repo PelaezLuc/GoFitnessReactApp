@@ -5,10 +5,13 @@ header {
   justify-content: space-between;
   padding: 0 10vw;
   height: 10vh;
+  width: 100%;
   line-height: 10vh;
   background-color: rgba(0, 132, 255);
   background-color: #ed504d;
   background-color: #f03835;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
 }
 
 

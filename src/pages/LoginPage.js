@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom';
+import { Footer } from '../components/Footer';
 import './form.css';
+
 
 export const LoginPage = () => {
     return (
+        <>
         <section class="form-register">
-            <h2>GoFitness<span class="font-family-app">APP</span></h2>    
-                <h4>Inicia Sesión</h4>
+            <Link to={"/"}><h2>GoFit<span class="font-family-app">APP</span></h2>    
+               </Link> 
+               <h4>Inicia Sesión</h4>
             <form action="">
                 <label for="email"></label>
                 <input class="controls" type="email" name="email" id="email" placeholder="Email"/>
@@ -14,5 +19,7 @@ export const LoginPage = () => {
                 <input class="btn" type="submit" value="Iniciar Sesión"/>
             </form>
         </section>
+        <Footer /> 
+        </>
     )
 }
