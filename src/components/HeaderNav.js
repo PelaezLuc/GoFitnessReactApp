@@ -23,4 +23,11 @@ export const HeaderNav = () => {
 //     </ul>}
 
 
+// {!isAuth && 
+//     <ul class="nav-list">
+//        <li class="nav-list-item">Login</li>
+//        <li class="nav-list-item">Register</li>
+//     </ul>}
+
+
 

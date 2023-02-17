@@ -2,6 +2,7 @@ import './form.css';
 import {Link} from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
+
 export const RegisterPage = () => {;
     return (
         <>

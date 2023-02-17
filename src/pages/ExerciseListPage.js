@@ -5,10 +5,11 @@ export const ExerciseListPage = () => {
     return (
         <>
         <header className="excercise-header">
-            <h1 className='logo-app'>GoFit<span className="font-logo">APP</span></h1>
+            <h1 className='logo-app'>GoFit<span class="font-logo">APP</span></h1>
         </header>
         <section id="exercise-list">
             <nav className="search-nav-container">
+                <button className="add-exercise-btn">+ Añadir ejercicio</button>
                 <ul className="search-container">
                     <li className="filter-menu-item"> 
                         <span>🔎 </span>
@@ -16,11 +17,9 @@ export const ExerciseListPage = () => {
                     </li>
                     <span className="item-slash"></span>
                     <li className="filter-menu-item">
-                        <button className="filter-btn">Filtros</button>
+                        <button className="filter-btn">+ Filtros</button>
                     </li>
                 </ul>
-
-                <button className="add-exercise-btn">+ Añadir ejercicio</button>
             </nav>
             <article className="card-container">
                 <ul className="exercise-card-list">
