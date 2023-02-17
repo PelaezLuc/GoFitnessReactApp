@@ -1,13 +1,14 @@
 import './homePage.css'
 import { Header } from '../components/Header'
 import { Link } from 'react-router-dom'
+import { Footer } from '../components/Footer'
 
 export const HomePage = () => {
     return (
         <>
         <Header />
         <section id="landing">
-            <article class="landing-div">
+            <article className="landing-div">
                 <h3>Training App</h3>
 
                 <p>Crea y analiza tus experiencias de entrenamiento</p>
@@ -22,6 +23,7 @@ export const HomePage = () => {
                 </div>
             </article>
         </section>
+        <Footer />
         </>
     )
 }

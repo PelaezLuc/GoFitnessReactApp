@@ -27,6 +27,7 @@ footer h3 {
     padding-top: 2rem;
 }
 
+
 .footer-info-list > li > p{
     display: flex;
     font-size: 12px;
@@ -38,3 +39,4 @@ footer h3 {
     justify-content: space-evenly;
     list-style: none;
 }
+

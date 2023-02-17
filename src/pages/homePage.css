@@ -1,18 +1,31 @@
 #landing {
-    height: 80vh;
+    height: 90vh;
     padding: 4rem;
     background-image: url(../../public/image/login-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    animation: animate 10s infinite;
+    /* transition-duration: 50s; */
+    /* [ <'animation-name'> || <'animation-duration'> || <'animation-timing-function'> || <'animation-delay'> || */
 }
+
+@keyframes animate {
+    50% {
+        background-image: url(../../public/image/register-bg.jpg);
+        background-size: cover;
+        background-position: top;
+        animation-duration: 10s; 
+    }
+}
+
 
 .landing-div {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: rgba(74, 74, 74, 0.213);
     font-size: 24px;
-    margin-top: 10vh;
+    margin-top: 20vh;
     margin-left: 6vw;
     margin-bottom: 4vh;
     padding: 3rem 1rem 3rem 2rem;
