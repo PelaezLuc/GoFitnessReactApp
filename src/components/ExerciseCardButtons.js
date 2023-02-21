@@ -3,19 +3,17 @@ export const ExerciseCardButtons = () => {
     const star = require ('../../src/bx-fav-icon.png');
     const heart = require ('../../src/bx-like-icon.png');
     return (
-        <>
         <ul className="button-list">
             <li className="card-btn-container">
-                <button className="card-button"><img className="card-button-icon" src={edit}></img></button>
+                <button className="card-button"><img className="card-button-icon" src={edit} alt='' /></button>
             </li>
             <li className="card-btn-container">
-                <button className="card-button"><img className="card-button-icon" src={star}></img></button>
+                <button className="card-button"><img className="card-button-icon" src={star} alt='' /></button>
             </li>
             <li className="card-btn-container">
-                <button className="card-button"><img className="card-button-icon" src={heart}></img></button>
+                <button className="card-button"><img className="card-button-icon" src={heart} alt=''/></button>
             </li>
         </ul>
-        </> 
     )
 }
 
