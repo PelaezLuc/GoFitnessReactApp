@@ -1,23 +1,27 @@
-import { useContext } from "react";
-//import { Navigate } from "react-router";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { AddExerciseButton } from "../components/AddExerciseButton";
 import { ExerciseCard } from "../components/ExerciseCard";
-import { AuthContext } from "../context/AuthContext";
+import { UserAuthContext } from "../context/UserAuthContext";
 import "./exerciseListPage.css";
+import "../components/header.css";
+import { AddExerciseModal } from "../components/AddExerciseModal";
+
 
 export const ExerciseListPage = () => {
+    const [stateModal, setStateModal] = useState(false);
 
-    const { token } = useContext(AuthContext);
+    const { userAuth } = useContext(UserAuthContext);
 
-    console.log(token);
-
-        return ( 
+        return userAuth.token ? ( 
             <>
             <header className="excercise-header">
                 <h1 className='logo-app'>GoFit<span className="font-logo">APP</span></h1>
             </header>
+            <AddExerciseModal stateModal={stateModal} setStateModal={setStateModal} />
             <section id="exercise-list">
                 <nav className="search-nav-container">
-                    <button className="add-exercise-btn">+ Añadir ejercicio</button>
+                    <AddExerciseButton stateModal={stateModal} setStateModal={setStateModal} />
                     <ul className="search-container">
                         <li className="filter-menu-item"> 
                             <span>🔎 </span>
@@ -38,6 +42,16 @@ export const ExerciseListPage = () => {
             <footer className="exercisePage-footer">
                 <p>GoFitness APP | Hack A Boss | Daniel Otero | Lucas Pélaez | 02/2023</p>
             </footer>
+            </>
+        ) : ( 
+            <>
+            <header className="excercise-header">
+                <h1 className='logo-app'>GoFit<span className="font-logo">APP</span></h1>
+            </header>
+            <section className="no-log-section">
+                <p>Para poder ver la lista de ejercicios tienes que iniciar sesión</p>    
+                <Link to={"/login"}>Inicia Sesión</Link> 
+            </section>
             </>
         )
 }

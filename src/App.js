@@ -10,7 +10,7 @@ function App() {
   return (
     <main>
       <Routes>
-        <Route path='/workouts' element={<ExerciseListPage />} />
+        <Route path='/' element={<ExerciseListPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
         {/* <Route path='/exercises' element={<ExerciseListPage />} /> */}

@@ -1,8 +1,13 @@
 import { getAllWorkoutsService } from "../services/services";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
+import { UserAuthContext } from "../context/UserAuthContext";
 
 const useWorkouts = () => {
+
+    const { userAuth } = useContext(UserAuthContext);
+    const token = userAuth.token;
+
     const [workouts, setWorkouts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -12,7 +17,7 @@ const useWorkouts = () => {
             try{
                 setLoading(true);
 
-                const data = await getAllWorkoutsService();
+                const data = await getAllWorkoutsService({ token });
 
                 setWorkouts(data);
                 
@@ -25,7 +30,8 @@ const useWorkouts = () => {
         };
 
         loadWorkouts();
-    }, []);
+    }, [token]);
+    
     return { workouts, loading, error };
 };
 

@@ -1,6 +1,10 @@
-export const getAllWorkoutsService = async () => {
+export const getAllWorkoutsService = async ({token}) => {
 
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workout`);
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workout`, {
+        headers: {
+            'Authorization': token,
+        }
+    });
     
     const json = await response.json();
 
@@ -8,7 +12,7 @@ export const getAllWorkoutsService = async () => {
         throw new Error (json.message);
     }
 
-    console.log(JSON.stringify(json));
+    
    
     return json.workouts;
 };
@@ -42,7 +46,30 @@ export const loginUserService = async ({email, password}) => {
 
     const json = await response.json();
 
-    console.log(json);
+    const user = {
+        'token': json.authToken,
+        'userRole': json.userInfo.role
+    };
+
+    if(!response.ok) {
+        throw new Error (json.message);
+    }
+
+    return user
+}
+
+export const addWorkoutService = async ({name, type, description, muscle_group, token}) => {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/addWorkout`, {
+        method: 'POST',
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name, type, description, muscle_group}),
+    });
+
+    console.log(token);
+    const json = await response.json();
 
     if(!response.ok) {
         throw new Error (json.message);
