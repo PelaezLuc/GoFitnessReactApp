@@ -4,7 +4,7 @@ import { addWorkoutService } from "../services/services";
 import './addExerciseModal.css'
 
 
-export const AddExerciseModal = ({ stateModal, setStateModal }) => {
+export const AddExerciseModal = ({ stateModal, setStateModal, addWorkout }) => {
 
     const { userAuth } = useContext(UserAuthContext);
     const token = userAuth.token;
@@ -21,11 +21,12 @@ export const AddExerciseModal = ({ stateModal, setStateModal }) => {
         setError('');
 
         try {
-            await addWorkoutService({name, type, description, muscle_group, token});
+            const workout = await addWorkoutService({name, type, description, muscle_group, token});
+
+            addWorkout(workout);
             
             setStateModal(false);
 
-            window.location.reload();
 
         } catch (error) {
             setError(error.message);
@@ -41,7 +42,7 @@ export const AddExerciseModal = ({ stateModal, setStateModal }) => {
                         <h2 className="titulo-modal">AÑADIR EJERCICIO</h2>
                     </div>
                     <button className="modal-close-btn" onClick={() => setStateModal(false)}>
-                        <svg className="x-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <svg className="x-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
                     </button>

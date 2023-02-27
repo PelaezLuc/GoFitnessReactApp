@@ -1,25 +1,25 @@
-import { getAllWorkoutsService } from "../services/services";
+import { getAllLikesService } from "../services/services";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
 
-const useWorkouts = () => {
+const useLikes = () => {
 
     const { userAuth } = useContext(UserAuthContext);
     const token = userAuth.token;
 
-    const [workouts, setWorkouts] = useState([]);
+    const [likes, setLikes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const loadWorkouts = async () => {
+        const loadLikes = async () => {
             try{
                 setLoading(true);
 
-                const data = await getAllWorkoutsService({ token });
+                const data = await getAllLikesService({ token });
 
-                setWorkouts(data);
+                setLikes(data);
                 
 
             } catch (error) {
@@ -29,14 +29,14 @@ const useWorkouts = () => {
             }
         };
 
-        loadWorkouts();
-    }, [token, setWorkouts]);
+        loadLikes();
+    }, [token, setLikes]);
     
-    const addWorkout = (workout) => {
-        setWorkouts([workout, ...workouts]);
+    const addLike = (like) => {
+        setLikes([like, ...likes]);
     }
 
-    return { workouts, loading, error, addWorkout };
+    return { likes, loading, error, addLike };
 };
 
-export default useWorkouts;
+export default useLikes;

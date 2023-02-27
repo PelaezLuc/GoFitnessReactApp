@@ -1,12 +1,9 @@
 import './exerciseCard.css'
-import useWorkouts from "../hooks/useWorkouts";
+//import useWorkouts from "../hooks/useWorkouts";
 import { Exercise } from "./Exercise";
 
-export const ExerciseCard = () => {
-    const {workouts, loading, error} = useWorkouts();
-
-    if(loading) return <p>Cargando Workouts...</p>;
-    if(error) return <p>{error}</p>
+export const ExerciseCard = ({workouts}) => {
+    
 
     
     return workouts.length ? (

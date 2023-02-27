@@ -6,19 +6,26 @@ import { UserAuthContext } from "../context/UserAuthContext";
 import "./exerciseListPage.css";
 import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
+import useWorkouts from "../hooks/useWorkouts";
 
 
 export const ExerciseListPage = () => {
+
     const [stateModal, setStateModal] = useState(false);
 
     const { userAuth } = useContext(UserAuthContext);
+
+    const {workouts, loading, error, addWorkout} = useWorkouts();
+
+    if(loading) return <p>Cargando Workouts...</p>;
+    if(error) return <p>{error}</p>
 
         return userAuth.token ? ( 
             <>
             <header className="excercise-header">
                 <h1 className='logo-app'>GoFit<span className="font-logo">APP</span></h1>
             </header>
-            <AddExerciseModal stateModal={stateModal} setStateModal={setStateModal} />
+            <AddExerciseModal stateModal={stateModal} setStateModal={setStateModal} addWorkout={addWorkout}/>
             <section id="exercise-list">
                 <nav className="search-nav-container">
                     <AddExerciseButton stateModal={stateModal} setStateModal={setStateModal} />
@@ -35,7 +42,7 @@ export const ExerciseListPage = () => {
                 </nav>
                 <article className="card-container">
                     <ul className="exercise-card-list">
-                        <ExerciseCard />
+                        <ExerciseCard workouts={workouts}/>
                     </ul>
                 </article>
             </section>

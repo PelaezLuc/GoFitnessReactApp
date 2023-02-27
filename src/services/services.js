@@ -76,3 +76,44 @@ export const addWorkoutService = async ({name, type, description, muscle_group, 
     }
     return json.data
 }
+
+export const likeWorkoutService = async ({id, token}) => {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workouts/${id}/like`, {
+        method: 'PUT',
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json'
+        },
+    });
+
+    const json = await response.json();
+
+    if(!response.ok) {
+        throw new Error (json.message); 
+    }
+
+    return json.data
+}
+
+
+export const dislikeWorkoutService = async ({id, token}) => {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workouts/${id}/dislike`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json'
+        },
+    });
+
+    const json = await response.json();
+
+    if(!response.ok) {
+        throw new Error (json.message); 
+    }
+
+    return json.data
+}
+
+export const getAllLikesService = async () => {
+    
+}
