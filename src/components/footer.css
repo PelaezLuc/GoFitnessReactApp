@@ -11,10 +11,6 @@ footer {
     text-transform: uppercase;
 }
 
-footer p:first-child {
-    line-height: 11vh;
-}
-
 footer h3 {
     font-size: 12px;
 }

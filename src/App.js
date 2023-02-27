@@ -5,16 +5,16 @@ import { RegisterPage } from './pages/RegisterPage';
 import { LoginPage } from './pages/LoginPage';
 import { ExerciseListPage } from './pages/ExerciseListPage';
 
-
 function App() {
   return (
     <main>
       <Routes>
-        <Route path='/workouts' element={<ExerciseListPage />} />
+        {/* <Route path='/' element={<HomePage />} /> */}
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
-        {/* <Route path='/exercises' element={<ExerciseListPage />} /> */}
+        <Route path='/main' element={<ExerciseListPage />} />
       </Routes>  
+      <Footer />
     </main>   
   );
 }

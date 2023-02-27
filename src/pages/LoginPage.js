@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../components/Footer';
-import { AuthContext } from '../context/AuthContext';
+import { UserAuthContext } from '../context/UserAuthContext';
 import { loginUserService } from '../services/services';
 import './form.css';
 
@@ -13,7 +13,8 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const {setToken} = useContext(AuthContext);
+    const {setUserAuth} = useContext(UserAuthContext);
+    
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -21,12 +22,12 @@ export const LoginPage = () => {
 
         
         try {
-            console.log('1');
+            
             const data = await loginUserService({email, password});
-            console.log('2');
-            setToken(data);
 
-            navigate('/workout');
+            setUserAuth(data);
+
+            navigate('/');
         } catch (error) {
             setError(error.message);
         }
@@ -35,8 +36,8 @@ export const LoginPage = () => {
     return (
         <>
         <section className="form-register">
-            <Link to={"/"}><h2>GoFit<span className="font-family-app">APP</span></h2>    
-               </Link> 
+            <h2>GoFit<span className="font-family-app">APP</span></h2>    
+                
                <h4>Inicia Sesión</h4>
             <form onSubmit={handleForm}>
                 <label htmlFor="email"></label>
@@ -60,6 +61,8 @@ export const LoginPage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <input className="btn" type="submit" value="Iniciar Sesión"/>
+                <p>Aún no estas registrado?</p>
+                <Link to={'/register'}>Registrate!</Link>
                 {error ? <p>{error}</p> : null}
             </form>
         </section>
