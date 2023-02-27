@@ -8,7 +8,7 @@ export const HomePage = () => {
         <>
         <Header />
         <section id="landing">
-            <article class="landing-div">
+            <article className="landing-div">
                 <h3>Training App</h3>
 
                 <p>Crea y analiza tus experiencias de entrenamiento</p>
