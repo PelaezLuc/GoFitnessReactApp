@@ -12,8 +12,6 @@ export const getAllWorkoutsService = async ({token}) => {
         throw new Error (json.message);
     }
 
-    
-   
     return json.workouts;
 };
 
@@ -70,12 +68,18 @@ export const addWorkoutService = async ({name, type, description, muscle_group, 
 
     console.log(token);
     const json = await response.json();
+    const user = {
+        'token': json.authToken,
+        'userRole': json.userInfo.role
+    };
 
     if(!response.ok) {
         throw new Error (json.message);
     }
-    return json.data
+
+    return user
 }
+
 
 export const likeWorkoutService = async ({id, token}) => {
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/workouts/${id}/like`, {

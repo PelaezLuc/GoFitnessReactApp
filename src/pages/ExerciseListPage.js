@@ -10,8 +10,8 @@ import useWorkouts from "../hooks/useWorkouts";
 
 
 export const ExerciseListPage = () => {
-
     const [stateModal, setStateModal] = useState(false);
+
 
     const { userAuth } = useContext(UserAuthContext);
 

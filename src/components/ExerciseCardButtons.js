@@ -37,7 +37,7 @@ export const ExerciseCardButtons = ( { workout } ) => {
                 <button className="card-button" onClick={HandleClick}>{workout.likes}<img className="card-button-icon" src={heart} alt=''/></button>
                 {/* {error ? <p>{error}</p> : null} */}
             </li>
-        </ul> 
+        </ul>  
     )
 }
 

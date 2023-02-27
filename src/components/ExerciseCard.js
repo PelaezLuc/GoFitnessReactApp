@@ -16,3 +16,4 @@ export const ExerciseCard = ({workouts}) => {
         </>
         ) : ( <p>No hay ningún ejercicio aún</p> ) 
 }
+ 

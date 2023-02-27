@@ -5,7 +5,6 @@ import { RegisterPage } from './pages/RegisterPage';
 import { LoginPage } from './pages/LoginPage';
 import { ExerciseListPage } from './pages/ExerciseListPage';
 
-
 function App() {
   return (
     <main>
@@ -13,7 +12,6 @@ function App() {
         <Route path='/' element={<ExerciseListPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
-        {/* <Route path='/exercises' element={<ExerciseListPage />} /> */}
       </Routes>  
     </main>   
   );
