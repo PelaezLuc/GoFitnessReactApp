@@ -8,7 +8,7 @@ export const ExerciseCard = () => {
     if(loading) return <p>Cargando Workouts...</p>;
     if(error) return <p>{error}</p>
 
-    
+   
     return workouts.length ? (
         <>
             {workouts.map((workout) => (
