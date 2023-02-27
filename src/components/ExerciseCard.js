@@ -21,7 +21,5 @@ export const ExerciseCard = () => {
             ))}
         </>
         ) : ( <p>No hay ningún ejercicio aún</p> ) 
-            ))}
-        </>
-        ) : ( <p>No hay ningún ejercicio aún</p> ) 
 }
+ 
