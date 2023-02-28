@@ -4,7 +4,7 @@ import { addWorkoutService } from "../services/services";
 import './addExerciseModal.css'
 
 
-export const AddExerciseModal = ({ stateModal, setStateModal }) => {
+export const AddExerciseModal = ({ stateModal, setStateModal, addWorkout }) => {
 
     const { userAuth } = useContext(UserAuthContext);
     const token = userAuth.token;
@@ -21,11 +21,12 @@ export const AddExerciseModal = ({ stateModal, setStateModal }) => {
         setError('');
 
         try {
-            await addWorkoutService({name, type, description, muscle_group, token});
+            const workout = await addWorkoutService({name, type, description, muscle_group, token});
+
+            addWorkout(workout);
             
             setStateModal(false);
 
-            window.location.reload();
 
         } catch (error) {
             setError(error.message);

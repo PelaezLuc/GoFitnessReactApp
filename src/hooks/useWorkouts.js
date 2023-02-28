@@ -1,8 +1,13 @@
 import { getAllWorkoutsService } from "../services/services";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
+import { UserAuthContext } from "../context/UserAuthContext";
 
 const useWorkouts = () => {
+
+    const { userAuth } = useContext(UserAuthContext);
+    const token = userAuth.token;
+
     const [workouts, setWorkouts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -12,7 +17,7 @@ const useWorkouts = () => {
             try{
                 setLoading(true);
 
-                const data = await getAllWorkoutsService();
+                const data = await getAllWorkoutsService({ token });
 
                 setWorkouts(data);
                 
@@ -25,8 +30,17 @@ const useWorkouts = () => {
         };
 
         loadWorkouts();
-    }, []);
-    return { workouts, loading, error };
+    }, [token, setWorkouts]);
+    
+    const addWorkout = (workout) => {
+        setWorkouts([workout, ...workouts]);
+    }
+
+    const removeWorkout = (id) => {
+        setWorkouts(workouts.filter((workout) => workout.id !== id));
+    }
+
+    return { workouts, loading, error, addWorkout, removeWorkout };
 };
 
 export default useWorkouts;
