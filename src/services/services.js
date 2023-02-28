@@ -121,3 +121,21 @@ export const dislikeWorkoutService = async ({id, token}) => {
 export const getAllLikesService = async () => {
     
 }
+
+export const deleteWorkoutService = async ({id, token}) => {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/deleteWorkout/${id}`, {
+        method: 'DELETE', 
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json',
+        }
+    })
+
+    const json = await response.json();
+
+    if(!response.ok) {
+        throw new Error (json.message);
+    }
+
+    return json.data;
+}

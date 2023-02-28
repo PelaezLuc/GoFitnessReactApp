@@ -2,7 +2,7 @@ import './exerciseCard.css'
 //import useWorkouts from "../hooks/useWorkouts";
 import { Exercise } from "./Exercise";
 
-export const ExerciseCard = ({workouts}) => {
+export const ExerciseCard = ({workouts, likes, addLike, removeWorkout}) => {
     
 
     
@@ -10,7 +10,7 @@ export const ExerciseCard = ({workouts}) => {
         <>
             {workouts.map((workout) => (
                 <li key={workout.id} className="exercise-card">
-                    <Exercise workout={workout} />
+                    <Exercise workout={workout} likes={likes} addLike={addLike} removeWorkout={removeWorkout}/>
                 </li>
             ))}
         </>

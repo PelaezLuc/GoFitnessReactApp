@@ -1,7 +1,7 @@
 import { ExerciseCardButtons } from "./ExerciseCardButtons"
 
 
-export const Exercise = ({ workout }) => {
+export const Exercise = ({ workout, likes, addLike, removeWorkout }) => {
     //const video = require ("../../src/video-icon.png");
 
     
@@ -13,7 +13,7 @@ export const Exercise = ({ workout }) => {
             <li className="data-list-item"><h3>Tipo: {workout.type}</h3></li>
             <li className="data-list-item"><h3>Descripción:<p>{workout.description}</p></h3></li>
             <li className="data-list-item"><h3>Grupo muscular: {workout.muscle_group}</h3></li>
-            <ExerciseCardButtons workout={workout} />
+            <ExerciseCardButtons workout={workout} likes={likes} addLike={addLike} removeWorkout={removeWorkout}/>
         </ul>
             
     )

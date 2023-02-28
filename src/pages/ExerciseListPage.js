@@ -7,6 +7,7 @@ import "./exerciseListPage.css";
 import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
+import useLikes from "../hooks/useLikes";
 
 
 export const ExerciseListPage = () => {
@@ -15,7 +16,9 @@ export const ExerciseListPage = () => {
 
     const { userAuth } = useContext(UserAuthContext);
 
-    const {workouts, loading, error, addWorkout} = useWorkouts();
+    const {workouts, loading, error, addWorkout, removeWorkout} = useWorkouts();
+
+    const {likes, addLike} = useLikes
 
     if(loading) return <p>Cargando Workouts...</p>;
     if(error) return <p>{error}</p>
@@ -42,7 +45,7 @@ export const ExerciseListPage = () => {
                 </nav>
                 <article className="card-container">
                     <ul className="exercise-card-list">
-                        <ExerciseCard workouts={workouts}/>
+                        <ExerciseCard workouts={workouts} likes={likes} addLike={addLike} removeWorkout={removeWorkout} />
                     </ul>
                 </article>
             </section>

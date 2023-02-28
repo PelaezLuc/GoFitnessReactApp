@@ -9,23 +9,18 @@ const useLikes = () => {
     const token = userAuth.token;
 
     const [likes, setLikes] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
         const loadLikes = async () => {
             try{
-                setLoading(true);
 
                 const data = await getAllLikesService({ token });
 
                 setLikes(data);
                 
-
             } catch (error) {
                 setError(error.message);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -36,7 +31,7 @@ const useLikes = () => {
         setLikes([like, ...likes]);
     }
 
-    return { likes, loading, error, addLike };
+    return { likes, addLike };
 };
 
 export default useLikes;

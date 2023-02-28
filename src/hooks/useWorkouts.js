@@ -36,7 +36,11 @@ const useWorkouts = () => {
         setWorkouts([workout, ...workouts]);
     }
 
-    return { workouts, loading, error, addWorkout };
+    const removeWorkout = (id) => {
+        setWorkouts(workouts.filter((workout) => workout.id !== id));
+    }
+
+    return { workouts, loading, error, addWorkout, removeWorkout };
 };
 
 export default useWorkouts;
