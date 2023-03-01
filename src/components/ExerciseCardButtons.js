@@ -31,20 +31,16 @@ export const ExerciseCardButtons = ( { workout, likes, addLike, removeWorkout } 
 
 
     const HandleLikeClick = async () => {
-
-        try {
+         try {
             await likeWorkoutService({id, token});
-            window.location.reload();
             
         } catch (error) {
             if (error.message === 'Ya le has dado a like a este ejercicio anteriormente!'){
                 await dislikeWorkoutService({ id, token });
-                window.location.reload();
             }
         }
     }
-    
-    
+
 
     return userAuth.userRole === 1 ? (
         <ul className="button-list">

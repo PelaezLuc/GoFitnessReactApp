@@ -8,6 +8,7 @@ import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
 import useLikes from "../hooks/useLikes";
+import { Footer } from "../components/Footer";
 
 
 export const ExerciseListPage = () => {
@@ -25,7 +26,7 @@ export const ExerciseListPage = () => {
 
         return userAuth.token ? ( 
             <>
-            <header className="excercise-header">
+            <header className="exercise-header">
                 <h1 className='logo-app'>GoFit<span className="font-logo">APP</span></h1>
             </header>
             <AddExerciseModal stateModal={stateModal} setStateModal={setStateModal} addWorkout={addWorkout}/>
@@ -49,9 +50,7 @@ export const ExerciseListPage = () => {
                     </ul>
                 </article>
             </section>
-            <footer className="exercisePage-footer">
-                <p>GoFitness APP | Hack A Boss | Daniel Otero | Lucas Pélaez | 02/2023</p>
-            </footer>
+            <Footer />
             </>
         ) : ( 
             <>

@@ -1,38 +1,40 @@
-footer {
+.app-footer {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 6rem;
-    background-color: #f03835;
-    background-color: rgb(0, 0, 0);
-    font-size: 12px;
-    color: white;
-    text-transform: uppercase;
-}
-
-footer h3 {
-    font-size: 12px;
-}
-
-.footer-info-list {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
+    align-items: flex-start;
     width: 100%;
-    padding-top: 2rem;
+    height: 6vh;
+    box-shadow: 0px 0px 1px 0px #00000077;
+    padding: 0;
+    background-color: #ebebeb;
+}
+
+.app-footer > p {
+    line-height: 6vh;
+    color: grey;
+    padding-left: 3rem;
 }
 
 
-.footer-info-list > li > p{
-    display: flex;
-    font-size: 12px;
+@media (min-height: 320px) and (max-height: 763px){
+    .form {
+        margin-bottom: 2rem !important;
+    }
+    .app-footer {
+        height: 45px;
+    }
+
+    .app-footer > p {
+        line-height: 45px;
+    }
 }
 
-.contact-list-items {
-    width: 10vw;
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-}
+@media (min-width: 320px) and (max-width: 425px) {
+    .app-footer {
+        height: fit-content;
+    }
 
+    .app-footer > p {
+        padding-left: 1rem;
+    }
+}

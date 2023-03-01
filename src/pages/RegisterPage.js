@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { registerUserService } from '../services/services';
 import { useState } from 'react';
+import ParticlesBackground from '../components/ParticlesBackground';
 
 
 export const RegisterPage = () => {
@@ -28,6 +29,7 @@ export const RegisterPage = () => {
     }
     return (
         <>
+        <ParticlesBackground />
         <section className="form-register">
              <Link to={"/"}><h2>GoFit<span className="font-family-app">APP</span></h2>    
                </Link>  
