@@ -25,7 +25,7 @@ h2 {
     font-size: 2rem;
 }
 
-form{
+form {
     min-width: 320px;
     max-width: 500px;
     padding: 2rem;
@@ -57,7 +57,7 @@ h4 {
 }
 
 .controls:focus {
-    outline: 6px solid rgba(69, 165, 255);
+    outline: 6px solid #45a5ff;
     outline: 3px solid rgba(69, 165, 255);
 }
 
@@ -94,6 +94,10 @@ h4 {
     background-color: rgb(124, 124, 124);
 }
 
-
+@media (min-height: 320px) , (max-height: 425px) {
+    form {
+        margin-bottom: 2rem;
+    }
+}
 
   
