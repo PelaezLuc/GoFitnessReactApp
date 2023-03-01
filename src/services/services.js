@@ -1,6 +1,6 @@
-export const getAllWorkoutsService = async ({token}) => {
+export const getWorkoutsService = async ({token, value}) => {
 
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workout`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/workout?name=${value}`, {
         headers: {
             'Authorization': token,
         }
