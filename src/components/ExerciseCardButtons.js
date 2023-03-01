@@ -34,6 +34,7 @@ export const ExerciseCardButtons = ({
     } catch (error) {
       console.log(error);
     }
+
   };
 
   const HandleLikeClick = async (mode) => {

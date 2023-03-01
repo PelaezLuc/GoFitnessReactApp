@@ -1,25 +1,25 @@
-.excercise-header {
+.exercise-header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    height: 9vh;
+    height: 8vh;
     padding: 0 4rem;
     width: 100%;
-    line-height: 9vh;
+    line-height: 8vh;
     background-color: #ebebeb;
+    box-shadow: 0px 0px 1px 0px #00000077;
 }
 
 #exercise-list {
     padding: 1.5rem 3.4rem;
     background-color: #ebebeb;
-    min-height: 85vh;
+    min-height: 87vh;
 }
 
 .search-nav-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-right: 10vw;
     margin-bottom: 4rem;
     background-color: transparent;
 }
@@ -30,8 +30,9 @@
     background-color: #ebebeb;
     align-items: center;
     justify-content: center;
-    width: fit-content;
+    min-width: 320px;
     padding: 1.5rem;
+    margin-top: 2rem;
     border-radius: 50px;
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
     -6px -6px 10px -1px rgba(255, 255, 255, 0.5);
@@ -39,6 +40,7 @@
 
 .filter-menu-item {
     display: flex;
+    width: 75%;
 }
 
 .filter-btn{
@@ -82,7 +84,7 @@
 }
 
 .item-slash {
-    width: 2px;
+    width: 6px;
     height: 1.5rem;
     background-color: #e3e3e3;
 }
@@ -100,7 +102,7 @@
    outline: none;
 }
 
-.excercise-header > .logo-app , .font-logo {
+.exercise-header > .logo-app , .font-logo {
     color:  #f03835 !important;
 }
 
@@ -115,28 +117,35 @@
     padding: 4rem;
 }
 
-.exercisePage-footer {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    height: 6vh;
-    box-shadow: 0px 0px 1px 0px #00000077;
-    padding: 0;
-    background-color: #ebebeb;
-}
-
-.exercisePage-footer > p {
-    color: grey;
-    padding-left: 3rem;
-}
-
 .no-log-section{
     text-align: center;
     padding: 2rem;
 }
 
 
+@media (min-width: 320px) and (max-width: 767px){
+    .exercise-header {
+        padding: 0 3rem;
+    }
+
+    .search-input {
+        min-width: 185px;
+    }
+
+    .item-slash {
+        display: none;
+    }
+
+    .exercise-card {
+        max-width: 320px;
+        min-width: 320px;
+    }
+}
 
 
-
-
+@media (min-height: 320px) and (max-height: 425px) {
+    .exercise-header {
+        height: 60px;
+        line-height: 60px;
+    }
+}

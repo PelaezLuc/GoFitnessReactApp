@@ -5,6 +5,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { LoginPage } from './pages/LoginPage';
 import { ExerciseListPage } from './pages/ExerciseListPage';
 
+
 function App() {
   return (
     <main>

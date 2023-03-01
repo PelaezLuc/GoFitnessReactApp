@@ -1,5 +1,9 @@
+* {
+    z-index: 9;
+}
+
 .form-register {
-    height: 94vh;
+    min-height: 94vh;
     background-color: #ebebeb;
     font-family: 'calibri';
     text-align: center;
@@ -21,8 +25,9 @@ h2 {
     font-size: 2rem;
 }
 
-form{
-    width: 500px;
+form {
+    min-width: 320px;
+    max-width: 500px;
     padding: 2rem;
     background-color: #ebebeb;
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
@@ -33,7 +38,7 @@ form{
 h4 {
     font-size: 2rem;
     margin: 2rem 0;
-    color: grey;
+    color: black;
     font-family: 'Arial';
 }
 
@@ -52,8 +57,8 @@ h4 {
 }
 
 .controls:focus {
-    outline: 6px solid rgba(69, 165, 255);
-    outline: 4px solid rgba(69, 165, 255);
+    outline: 6px solid #45a5ff;
+    outline: 3px solid rgba(69, 165, 255);
 }
 
 .form-register p {
@@ -89,3 +94,10 @@ h4 {
     background-color: rgb(124, 124, 124);
 }
 
+@media (min-height: 320px) , (max-height: 425px) {
+    form {
+        margin-bottom: 2rem;
+    }
+}
+
+  

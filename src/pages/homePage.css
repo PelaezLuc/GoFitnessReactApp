@@ -66,3 +66,42 @@ form{
     box-shadow: 5px 5px 17px 2px #000;
     padding: 2rem;
 }
+
+footer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6rem;
+    background-color: #f03835;
+    background-color: rgb(0, 0, 0);
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+}
+
+footer h3 {
+    font-size: 12px;
+}
+
+.footer-info-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+
+.footer-info-list > li > p{
+    display: flex;
+    font-size: 12px;
+}
+
+.contact-list-items {
+    width: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}

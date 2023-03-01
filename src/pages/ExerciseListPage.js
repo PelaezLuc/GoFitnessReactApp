@@ -8,6 +8,7 @@ import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
 import useLikes from "../hooks/useLikes";
+import { Footer } from "../components/Footer";
 
 export const ExerciseListPage = () => {
   const [stateModal, setStateModal] = useState(false);
@@ -32,6 +33,7 @@ export const ExerciseListPage = () => {
   };
 
   if (error) return <p>{error}</p>;
+
 
   return userAuth.token ? (
     <>
@@ -102,3 +104,4 @@ export const ExerciseListPage = () => {
     </>
   );
 };
+
