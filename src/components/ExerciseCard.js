@@ -8,9 +8,10 @@ export const ExerciseCard = ({
   addLike,
   removeWorkout,
   setWorkoutLikes,
+  editWorkout,
   loading,
 }) => {
-  if (loading) return <p>Cargando Workouts...</p>;
+  //if (loading) return <p>Cargando Workouts...</p>;
   return workouts.length ? (
     <>
       {workouts.map((workout) => (
@@ -21,6 +22,7 @@ export const ExerciseCard = ({
             addLike={addLike}
             removeWorkout={removeWorkout}
             setWorkoutLikes={setWorkoutLikes}
+            editWorkout={editWorkout}
           />
         </li>
       ))}

@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
 
-export const AddExerciseButton = ({ stateModal, setStateModal }) => {
+export const AddExerciseButton = ({ stateAddModal, setStateAddModal }) => {
+  const { userAuth } = useContext(UserAuthContext);
 
-    const { userAuth } = useContext(UserAuthContext);
-
-    return userAuth.userRole === 1 ? (
-        <button className="add-exercise-btn" onClick={() => setStateModal(!stateModal)}>+ Añadir ejercicio</button>
-    ) : null
-}
+  return userAuth.userRole === 1 ? (
+    <button
+      className="add-exercise-btn"
+      onClick={() => setStateAddModal(!stateAddModal)}
+    >
+      + Añadir ejercicio
+    </button>
+  ) : null;
+};

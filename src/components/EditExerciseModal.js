@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
-import { addWorkoutService } from "../services/services";
-import "./addExerciseModal.css";
+import { editWorkoutService } from "../services/services";
 
-export const AddExerciseModal = ({
-  stateAddModal,
-  setStateAddModal,
-  addWorkout,
+export const EditExerciseModal = ({
+  workout,
+  stateEditModal,
+  setStateEditModal,
+  editWorkout,
 }) => {
   const { userAuth } = useContext(UserAuthContext);
   const token = userAuth.token;
+  const idWorkout = workout.id;
 
   const [name, setName] = useState("");
   const [type, setType] = useState("");
@@ -23,7 +24,8 @@ export const AddExerciseModal = ({
     setError("");
 
     try {
-      const workout = await addWorkoutService({
+      const editedWorkout = await editWorkoutService({
+        idWorkout,
         name,
         type,
         description,
@@ -31,9 +33,9 @@ export const AddExerciseModal = ({
         token,
       });
 
-      addWorkout(workout);
+      editWorkout({ idWorkout, editedWorkout });
 
-      setStateAddModal(false);
+      setStateEditModal(false);
     } catch (error) {
       setError(error.message);
     }
@@ -41,15 +43,15 @@ export const AddExerciseModal = ({
 
   return (
     <>
-      {stateAddModal && (
+      {stateEditModal && (
         <div className="overlay-modal">
           <div className="contenedor-modal">
             <div className="header-modal">
-              <h2 className="titulo-modal">AÑADIR EJERCICIO</h2>
+              <h2 className="titulo-modal">EDITAR EJERCICIO</h2>
             </div>
             <button
               className="modal-close-btn"
-              onClick={() => setStateAddModal(false)}
+              onClick={() => setStateEditModal(false)}
             >
               <svg
                 className="x-icon"
@@ -70,7 +72,6 @@ export const AddExerciseModal = ({
                 name="name"
                 id="name"
                 placeholder="Nombre"
-                required
                 onChange={(e) => setName(e.target.value)}
               />
               <label htmlFor="type"></label>
@@ -80,7 +81,6 @@ export const AddExerciseModal = ({
                 name="type"
                 id="type"
                 placeholder="tipo (aerobico o anaerobico)"
-                required
                 onChange={(e) => setType(e.target.value)}
               />
               <label htmlFor="description"></label>
@@ -90,7 +90,6 @@ export const AddExerciseModal = ({
                 name="description"
                 id="description"
                 placeholder="Descripción"
-                required
                 onChange={(e) => setDescription(e.target.value)}
               />
               <label htmlFor="muscle-group"></label>
@@ -100,7 +99,6 @@ export const AddExerciseModal = ({
                 name="muscle-group"
                 id="muscle-group"
                 placeholder="Grupo muscular"
-                required
                 onChange={(e) => setMuscleGroup(e.target.value)}
               />
               <label htmlFor="video"></label>
@@ -112,7 +110,7 @@ export const AddExerciseModal = ({
                 placeholder="Añadir vídeo"
                 onChange={(e) => setVideo(e.target.value)}
               />
-              <input className="btn" type="submit" value="Añadir Ejercicio" />
+              <input className="btn" type="submit" value="Editar Ejercicio" />
               {error ? <p>{error}</p> : null}
             </form>
           </div>

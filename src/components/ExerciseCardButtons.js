@@ -1,19 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
-//import useLikes from '../hooks/useLikes';
 import {
   deleteWorkoutService,
   dislikeWorkoutService,
   likeWorkoutService,
 } from "../services/services";
+import { EditExerciseModal } from "./EditExerciseModal";
 
 export const ExerciseCardButtons = ({
   workout,
-  likes,
-  addLike,
   removeWorkout,
   setWorkoutLikes,
+  editWorkout,
 }) => {
+  const [stateEditModal, setStateEditModal] = useState(false);
+
   const { userAuth } = useContext(UserAuthContext);
   const token = userAuth.token;
   const id = workout.id;
@@ -65,28 +66,29 @@ export const ExerciseCardButtons = ({
   };
 
   return userAuth.userRole === 1 ? (
-    <ul className="button-list">
-      <li className="card-btn-container">
-        <button className="card-button">
-          <img className="card-button-icon" src={edit} alt="" />
-        </button>
-      </li>
-      <li className="card-btn-container">
-        <button className="card-button" onClick={HandleDeleteWorkoutClick}>
-          <img className="card-button-icon" src={quit} alt="" />
-        </button>
-      </li>
-      <li className="card-btn-container">
-        <button className="card-button">
-          {workout.likes}
-          <img
-            className="card-button-icon"
-            src={workout.userLike ? heartFull : heart}
-            alt=""
-          />
-        </button>
-      </li>
-    </ul>
+    <>
+      <EditExerciseModal
+        workout={workout}
+        stateEditModal={stateEditModal}
+        setStateEditModal={setStateEditModal}
+        editWorkout={editWorkout}
+      />
+      <ul className="button-list">
+        <li className="card-btn-container">
+          <button
+            className="card-button"
+            onClick={() => setStateEditModal(!stateEditModal)}
+          >
+            <img className="card-button-icon" src={edit} alt="" />
+          </button>
+        </li>
+        <li className="card-btn-container">
+          <button className="card-button" onClick={HandleDeleteWorkoutClick}>
+            <img className="card-button-icon" src={quit} alt="" />
+          </button>
+        </li>
+      </ul>
+    </>
   ) : (
     <ul className="button-list">
       <li className="card-btn-container">

@@ -37,7 +37,25 @@ const useWorkouts = ({ value }) => {
     setWorkouts(workouts.filter((workout) => workout.id !== id));
   };
 
-  //const editWorkout
+  const editWorkout = ({ idWorkout, editedWorkout }) => {
+    setWorkouts(
+      workouts.map((workout) => {
+        console.log(editedWorkout + " dentro del map");
+        if (workout.id === idWorkout) {
+          workout.name = editedWorkout.name ? editedWorkout.name : workout.name;
+          workout.type = editedWorkout.type ? editedWorkout.type : workout.type;
+          workout.description = editedWorkout.description
+            ? editedWorkout.description
+            : workout.description;
+          workout.muscle_group = editedWorkout.muscle_group
+            ? editedWorkout.muscle_group
+            : workout.muscle_group;
+        }
+
+        return workout;
+      })
+    );
+  };
 
   const setWorkoutLikes = ({ workoutId, likes, mode }) => {
     setWorkouts(
@@ -59,6 +77,7 @@ const useWorkouts = ({ value }) => {
     addWorkout,
     removeWorkout,
     setWorkoutLikes,
+    editWorkout,
   };
 };
 

@@ -7,10 +7,9 @@ import "./exerciseListPage.css";
 import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
-import useLikes from "../hooks/useLikes";
 
 export const ExerciseListPage = () => {
-  const [stateModal, setStateModal] = useState(false);
+  const [stateAddModal, setStateAddModal] = useState(false);
 
   const [value, setValue] = useState("");
 
@@ -23,9 +22,8 @@ export const ExerciseListPage = () => {
     addWorkout,
     removeWorkout,
     setWorkoutLikes,
+    editWorkout,
   } = useWorkouts({ value });
-
-  const { likes, addLike } = useLikes;
 
   const onChange = (e) => {
     setValue(e.target.value);
@@ -41,15 +39,15 @@ export const ExerciseListPage = () => {
         </h1>
       </header>
       <AddExerciseModal
-        stateModal={stateModal}
-        setStateModal={setStateModal}
+        stateAddModal={stateAddModal}
+        setStateAddModal={setStateAddModal}
         addWorkout={addWorkout}
       />
       <section id="exercise-list">
         <nav className="search-nav-container">
           <AddExerciseButton
-            stateModal={stateModal}
-            setStateModal={setStateModal}
+            stateAddModal={stateAddModal}
+            setStateAddModal={setStateAddModal}
           />
           <ul className="search-container">
             <li className="filter-menu-item">
@@ -74,10 +72,9 @@ export const ExerciseListPage = () => {
             <ExerciseCard
               loading={loading}
               workouts={workouts}
-              likes={likes}
-              addLike={addLike}
               removeWorkout={removeWorkout}
               setWorkoutLikes={setWorkoutLikes}
+              editWorkout={editWorkout}
             />
           </ul>
         </article>
