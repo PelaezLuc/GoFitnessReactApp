@@ -7,11 +7,20 @@ import "./exerciseListPage.css";
 import "../components/header.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
+import { FiltersModal } from "../components/FiltersModal";
 
 export const ExerciseListPage = () => {
   const [stateAddModal, setStateAddModal] = useState(false);
 
   const [value, setValue] = useState("");
+
+  const [showFav, setShowFav] = useState(false);
+
+  const [showFiltersModal, setShowFiltersModal] = useState(false);
+
+  const [filterType, setFilterType] = useState("");
+
+  const [filterMuscleGroup, setFilterMuscleGroup] = useState("");
 
   const { userAuth } = useContext(UserAuthContext);
 
@@ -23,11 +32,16 @@ export const ExerciseListPage = () => {
     removeWorkout,
     setWorkoutLikes,
     editWorkout,
-  } = useWorkouts({ value });
+    setWorkoutFavs,
+  } = useWorkouts({ value, showFav, filterType, filterMuscleGroup });
 
   const onChange = (e) => {
     setValue(e.target.value);
   };
+
+  console.log(filterMuscleGroup);
+
+  console.log(filterType);
 
   if (error) return <p>{error}</p>;
 
@@ -63,10 +77,28 @@ export const ExerciseListPage = () => {
             </li>
             <span className="item-slash"></span>
             <li className="filter-menu-item">
-              <button className="filter-btn">+ Filtros</button>
+              <button
+                className="filter-btn"
+                onClick={() => setShowFiltersModal(!showFiltersModal)}
+              >
+                + Filtros
+              </button>
             </li>
           </ul>
+          {userAuth.userRole === 0 ? (
+            <button onClick={() => setShowFav(!showFav)}>
+              Toggle favorites
+            </button>
+          ) : null}
         </nav>
+        <FiltersModal
+          showFiltersModal={showFiltersModal}
+          setShowFiltersModal={setShowFiltersModal}
+          filterType={filterType}
+          setFilterType={setFilterType}
+          filterMuscleGroup={filterMuscleGroup}
+          setFilterMuscleGroup={setFilterMuscleGroup}
+        />
         <article className="card-container">
           <ul className="exercise-card-list">
             <ExerciseCard
@@ -75,6 +107,7 @@ export const ExerciseListPage = () => {
               removeWorkout={removeWorkout}
               setWorkoutLikes={setWorkoutLikes}
               editWorkout={editWorkout}
+              setWorkoutFavs={setWorkoutFavs}
             />
           </ul>
         </article>

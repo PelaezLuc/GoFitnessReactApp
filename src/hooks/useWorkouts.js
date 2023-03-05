@@ -1,11 +1,15 @@
-import { getWorkoutsService } from "../services/services";
+import {
+  getUserFavsWorkoutService,
+  getWorkoutsService,
+} from "../services/services";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
 
-const useWorkouts = ({ value }) => {
+const useWorkouts = ({ value, showFav, filterType, filterMuscleGroup }) => {
   const { userAuth } = useContext(UserAuthContext);
   const token = userAuth.token;
+  const idUser = userAuth.userId;
 
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +20,20 @@ const useWorkouts = ({ value }) => {
       try {
         setLoading(true);
 
-        const data = await getWorkoutsService({ token, value });
+        let data;
+
+        if (!showFav) {
+          data = await getWorkoutsService({
+            token,
+            value,
+            filterType,
+            filterMuscleGroup,
+          });
+        } else {
+          data = await getUserFavsWorkoutService({ token, idUser });
+
+          console.log(data);
+        }
 
         setWorkouts(data);
       } catch (error) {
@@ -27,7 +44,15 @@ const useWorkouts = ({ value }) => {
     };
 
     loadWorkouts();
-  }, [token, setWorkouts, value]);
+  }, [
+    token,
+    setWorkouts,
+    value,
+    showFav,
+    idUser,
+    filterType,
+    filterMuscleGroup,
+  ]);
 
   const addWorkout = (workout) => {
     setWorkouts([workout, ...workouts]);
@@ -57,12 +82,25 @@ const useWorkouts = ({ value }) => {
     );
   };
 
-  const setWorkoutLikes = ({ workoutId, likes, mode }) => {
+  const setWorkoutLikes = ({ workoutId, likes, likeMode }) => {
     setWorkouts(
       workouts.map((workout) => {
         if (workout.id === workoutId) {
           workout.likes = likes;
-          workout.userLike = mode ? 1 : 0;
+          workout.userLike = likeMode ? 1 : 0;
+        }
+
+        return workout;
+      })
+    );
+  };
+
+  const setWorkoutFavs = ({ workoutId, favs, favMode }) => {
+    setWorkouts(
+      workouts.map((workout) => {
+        if (workout.id === workoutId) {
+          workout.favs = favs;
+          workout.userFav = favMode ? 1 : 0;
         }
 
         return workout;
@@ -78,6 +116,7 @@ const useWorkouts = ({ value }) => {
     removeWorkout,
     setWorkoutLikes,
     editWorkout,
+    setWorkoutFavs,
   };
 };
 

@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
+import useFavs from "../hooks/useFavs";
 import {
   deleteWorkoutService,
   dislikeWorkoutService,
+  favWorkoutService,
   likeWorkoutService,
+  quitfavWorkoutService,
 } from "../services/services";
 import { EditExerciseModal } from "./EditExerciseModal";
 
@@ -12,6 +15,7 @@ export const ExerciseCardButtons = ({
   removeWorkout,
   setWorkoutLikes,
   editWorkout,
+  setWorkoutFavs,
 }) => {
   const [stateEditModal, setStateEditModal] = useState(false);
 
@@ -21,6 +25,7 @@ export const ExerciseCardButtons = ({
 
   const edit = require("../../src/edit-icon.png");
   const star = require("../../src/bx-fav-icon.png");
+  const starFull = require("../../src/bxs-fav-icon.png");
   const heart = require("../../src/bx-like-icon.png");
   const heartFull = require("../../src/bxs-like-icon.png");
   const quit = require("../../src/bx-del-icon.png");
@@ -37,31 +42,35 @@ export const ExerciseCardButtons = ({
     }
   };
 
-  const HandleLikeClick = async (mode) => {
+  const HandleFavClick = async (favMode) => {
     try {
-      //   await likeWorkoutService({ id, token });
-      //   window.location.reload();
-
       let response;
 
-      if (mode) {
+      if (favMode) {
+        response = await favWorkoutService({ id, token });
+      } else {
+        response = await quitfavWorkoutService({ id, token });
+      }
+
+      setWorkoutFavs({ workoutId: id, favs: response, favMode });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const HandleLikeClick = async (likeMode) => {
+    try {
+      let response;
+
+      if (likeMode) {
         response = await likeWorkoutService({ id, token });
       } else {
         response = await dislikeWorkoutService({ id, token });
       }
 
-      setWorkoutLikes({ workoutId: id, likes: response, mode });
+      setWorkoutLikes({ workoutId: id, likes: response, likeMode });
     } catch (error) {
       console.error(error);
-      //TODO: gestionar bien el error
-
-      //   if (
-      //     error.message ===
-      //     "Ya le has dado a like a este ejercicio anteriormente!"
-      //   ) {
-      //     await dislikeWorkoutService({ id, token });
-      //     window.location.reload();
-      //   }
     }
   };
 
@@ -92,8 +101,21 @@ export const ExerciseCardButtons = ({
   ) : (
     <ul className="button-list">
       <li className="card-btn-container">
-        <button className="card-button">
-          <img className="card-button-icon" src={star} alt="" />
+        <button
+          className="card-button"
+          onClick={() => {
+            if (workout.userFav) {
+              HandleFavClick(false);
+            } else {
+              HandleFavClick(true);
+            }
+          }}
+        >
+          <img
+            className="card-button-icon"
+            src={workout.userFav ? starFull : star}
+            alt=""
+          />
         </button>
       </li>
       <li className="card-btn-container">

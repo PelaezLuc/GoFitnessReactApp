@@ -4,12 +4,10 @@ import { Exercise } from "./Exercise";
 
 export const ExerciseCard = ({
   workouts,
-  likes,
-  addLike,
   removeWorkout,
   setWorkoutLikes,
   editWorkout,
-  loading,
+  setWorkoutFavs,
 }) => {
   //if (loading) return <p>Cargando Workouts...</p>;
   return workouts.length ? (
@@ -18,11 +16,10 @@ export const ExerciseCard = ({
         <li key={workout.id} className="exercise-card">
           <Exercise
             workout={workout}
-            likes={likes}
-            addLike={addLike}
             removeWorkout={removeWorkout}
             setWorkoutLikes={setWorkoutLikes}
             editWorkout={editWorkout}
+            setWorkoutFavs={setWorkoutFavs}
           />
         </li>
       ))}

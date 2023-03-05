@@ -1,6 +1,11 @@
-export const getWorkoutsService = async ({ token, value }) => {
+export const getWorkoutsService = async ({
+  token,
+  value,
+  filterType,
+  filterMuscleGroup,
+}) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/workout?name=${value}`,
+    `${process.env.REACT_APP_BACKEND}/workout?name=${value}&type=${filterType}&muscle=${filterMuscleGroup}`,
     {
       headers: {
         Authorization: token,
@@ -48,6 +53,7 @@ export const loginUserService = async ({ email, password }) => {
   const user = {
     token: json.authToken,
     userRole: json.userInfo.role,
+    userId: json.userInfo.id,
   };
 
   if (!response.ok) {
@@ -173,4 +179,62 @@ export const editWorkoutService = async ({
   }
 
   return json.workout;
+};
+
+export const getUserFavsWorkoutService = async ({ token, idUser }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/favworkouts`, {
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.workouts;
+};
+
+export const favWorkoutService = async ({ id, token }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/workouts/${id}/fav`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const quitfavWorkoutService = async ({ id, token }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/workouts/${id}/quitfav`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
 };
