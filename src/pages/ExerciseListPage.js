@@ -3,17 +3,26 @@ import { Link } from "react-router-dom";
 import { AddExerciseButton } from "../components/AddExerciseButton";
 import { ExerciseCard } from "../components/ExerciseCard";
 import { UserAuthContext } from "../context/UserAuthContext";
-import "./exerciseListPage.css";
-import "../components/header.css";
+import "./css/exerciseListPage.css";
 import { AddExerciseModal } from "../components/AddExerciseModal";
 import useWorkouts from "../hooks/useWorkouts";
-import useLikes from "../hooks/useLikes";
-import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer"; 
+import { FiltersModal } from "../components/FiltersModal";
+
 
 export const ExerciseListPage = () => {
-  const [stateModal, setStateModal] = useState(false);
+  const [stateAddModal, setStateAddModal] = useState(false);
 
   const [value, setValue] = useState("");
+
+  const [showFav, setShowFav] = useState(false);
+
+  const [showFiltersModal, setShowFiltersModal] = useState(false);
+
+  const [filterType, setFilterType] = useState("");
+
+  const [filterMuscleGroup, setFilterMuscleGroup] = useState("");
 
   const { userAuth } = useContext(UserAuthContext);
 
@@ -24,34 +33,34 @@ export const ExerciseListPage = () => {
     addWorkout,
     removeWorkout,
     setWorkoutLikes,
-  } = useWorkouts({ value });
-
-  const { likes, addLike } = useLikes;
+    editWorkout,
+    setWorkoutFavs,
+  } = useWorkouts({ value, showFav, filterType, filterMuscleGroup });
 
   const onChange = (e) => {
     setValue(e.target.value);
   };
+
+  console.log(filterMuscleGroup);
+
+  console.log(filterType);
 
   if (error) return <p>{error}</p>;
 
 
   return userAuth.token ? (
     <>
-      <header className="excercise-header">
-        <h1 className="logo-app">
-          GoFit<span className="font-logo">APP</span>
-        </h1>
-      </header>
+      <Header />
       <AddExerciseModal
-        stateModal={stateModal}
-        setStateModal={setStateModal}
+        stateAddModal={stateAddModal}
+        setStateAddModal={setStateAddModal}
         addWorkout={addWorkout}
       />
       <section id="exercise-list">
         <nav className="search-nav-container">
           <AddExerciseButton
-            stateModal={stateModal}
-            setStateModal={setStateModal}
+            stateAddModal={stateAddModal}
+            setStateAddModal={setStateAddModal}
           />
           <ul className="search-container">
             <li className="filter-menu-item">
@@ -66,29 +75,46 @@ export const ExerciseListPage = () => {
               />
             </li>
             <span className="item-slash"></span>
-            <li className="filter-menu-item">
-              <button className="filter-btn">+ Filtros</button>
+            <li className="btn-group">
+              <div className="filter-menu-item">
+              {userAuth.userRole === 0 ? (
+                  <button className="filter-btn" onClick={() => setShowFav(!showFav)}>
+                    Favoritos
+                  </button>
+                ) : null}
+              </div>
+              <div className="filter-menu-item">
+                <button className="filter-btn"
+                  onClick={() => setShowFiltersModal(!showFiltersModal)}
+                  >
+                    +Filtros
+                </button>
+              </div>
             </li>
           </ul>
         </nav>
+        <FiltersModal
+          showFiltersModal={showFiltersModal}
+          setShowFiltersModal={setShowFiltersModal}
+          filterType={filterType}
+          setFilterType={setFilterType}
+          filterMuscleGroup={filterMuscleGroup}
+          setFilterMuscleGroup={setFilterMuscleGroup}
+        />
         <article className="card-container">
           <ul className="exercise-card-list">
             <ExerciseCard
               loading={loading}
               workouts={workouts}
-              likes={likes}
-              addLike={addLike}
               removeWorkout={removeWorkout}
               setWorkoutLikes={setWorkoutLikes}
+              editWorkout={editWorkout}
+              setWorkoutFavs={setWorkoutFavs}
             />
           </ul>
         </article>
       </section>
-      <footer className="exercisePage-footer">
-        <p>
-          GoFitness APP | Hack A Boss | Daniel Otero | Lucas Pélaez | 02/2023
-        </p>
-      </footer>
+      <Footer />
     </>
   ) : (
     <>
@@ -104,4 +130,3 @@ export const ExerciseListPage = () => {
     </>
   );
 };
-

@@ -1,8 +1,8 @@
-.modal-controls:-webkit-autofill {
+.modal-edit-controls:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.overlay-modal {
+.overlay-edit-modal {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -15,7 +15,7 @@
     z-index: 99;
 }
 
-.modal-container {
+.modal-edit-container {
     width: 600px;
     height: -moz-fit-content;
     height: fit-content;
@@ -27,37 +27,38 @@
     transform: translateY(8vh);
 }
 
-.modal-form {
+.modal-edit-form {
     box-shadow: none;
     background-color: white;
     margin-top: 2rem;
 }
 
-.modal-header {
+.modal-edit-header {
     text-align: left;
 }
 
-.modal-title {
+.modal-edit-title {
     font-weight: bolder;
     font-size: 30px;
 }
 
-.modal-group:not(.textarea) {
+.modal-edit-group {
     width: 100%;
     display: flex;
     margin-bottom: 4rem;
     align-items: center;
     gap: 1rem;
+    text-align: left;
 }
 
-.textarea {
+/* .textarea {
     display: flex;
     margin-top: 4rem;
     margin-bottom: 3rem;
     gap: 1rem;
-}
+} */
 
-.modal-controls {
+.modal-edit-controls {
     color: black;
     width: 100%;
     background-color: white;
@@ -69,24 +70,24 @@
     font-size: 18px;
 }
 
-.modal-controls:focus {
+.modal-edit-controls:focus {
     outline: 2px solid rgba(0, 0, 0, 0.169);
     border:none;
 }
 
-.modal-label {
+.modal-edit-label {
     min-width: 6rem;
     color: grey;
     font-weight: bold;
 }
 
-.modal-controls.video {
+.modal-edit-controls.video {
     border-radius: 0;
     border: none;
     padding: 0;
 }
 
-.text-area {
+/* .text-area {
     flex-direction: column  ;
     margin-top: 4rem;
 }
@@ -95,10 +96,10 @@
     height: 100px;
     transform: translateY(-10px);
     resize: none;
-}
+} */
 
 
-.modal-submit-btn {
+.modal-edit-submit-btn {
     border: none;
     padding: 1rem;
     width: 100%;
@@ -108,22 +109,22 @@
     font-weight: 700;
 }
 
-.modal-submit-btn:hover {
+.modal-edit-submit-btn:hover {
     cursor: pointer;
     background-color: rgb(124, 124, 124);
 }
 
 @media (max-width: 475px) {
-    .modal-header {
+    .modal-edit-header {
         display: none;
     }
 
-    .overlay-modal {
+    .overlay-edit-modal {
         padding: 0;
         height: 100vh;
     }
 
-    .modal-container {
+    .modal-edit-container {
         position: relative;
         width: 600px;
         height: fit-content;
@@ -133,11 +134,11 @@
         padding: 0rem 2rem 2rem 2rem;
     }
     
-    .modal-form {
+    .modal-edit-form {
         padding: 0;
     }
 
-    .modal-group:not(.textarea) {
+    .modal-edit-group:not(.textarea) {
         display: flex;
         flex-direction: column-reverse;
         margin-bottom: 1rem;
@@ -156,39 +157,39 @@
 }
 
 @media (min-width: 768px) and (max-width: 768px), (min-height: 768px) and (min-width: 763px){
-    .modal-container {
+    .modal-edit-container {
         height: 670px;
     }
 
-    .modal-form {
+    .modal-edit-form {
         margin-top: 1rem;
     }
 
-    .modal-group:not(.textarea) {
+    .modal-edit-group:not(.textarea) {
         margin-bottom: 2rem;
     }
 }
 
 @media (max-height: 325px) {
-    .overlay-modal {
+    .overlay-edit-modal {
         padding: 0;
     }
-    .modal-container {
+    .modal-edit-container {
         padding: 0 1rem 1rem 1rem;
         width: 100vw;
         height: fit-content;
         transform: translateY(0%);
     }
 
-    .modal-header {
+    .modal-edit-header {
         display: none;
     }
 
-    .modal-form {
+    .modal-edit-form {
         margin-top: 0;
     }
 
-    .modal-group:not(.textarea) {
+    .modal-edit-group:not(.textarea) {
         margin-bottom: 1rem;
     }
 
@@ -204,25 +205,25 @@
 }
 
 @media (width: 763px) and (height: 375px){
-    .overlay-modal {
+    .overlay-edit-modal {
         padding: 0;
     }
-    .modal-container {
+    .modal-edit-container {
         padding: 0 1rem 1rem 1rem;
         width: 100vw;
         height: fit-content;
         transform: translateY(15%);
     }
 
-    .modal-header {
+    .modal-edit-header {
         display: none;
     }
 
-    .modal-form {
+    .modal-edit-form {
         margin-top: 0;
     }
 
-    .modal-group:not(.textarea) {
+    .modal-edit-group:not(.textarea) {
         margin-bottom: 1rem;
     }
 
@@ -238,25 +239,25 @@
 }
 
 @media (width: 763px) and (height: 425px){
-    .overlay-modal {
+    .overlay-edit-modal {
         padding: 0;
     }
-    .modal-container {
+    .modal-edit-container {
         padding: 0 1rem 1rem 1rem;
         width: 100vw;
         height: fit-content;
         transform: translateY(18%);
     }
 
-    .modal-header {
+    .modal-edit-header {
         display: none;
     }
 
-    .modal-form {
+    .modal-edit-form {
         margin-top: 0;
     }
 
-    .modal-group:not(.textarea) {
+    .modal-edit-group:not(.textarea) {
         margin-bottom: 1rem;
     }
 
@@ -272,15 +273,15 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1024px) {
-    .modal-container {
+    .modal-edit-container {
         height: 680px;
     }
 
-    .modal-form {
+    .modal-edit-form {
         margin-top: 0;
     }
 
-    .modal-group:not(.text-area){
+    .modal-edit-group:not(.text-area){
         margin-bottom: 3rem;
     }
 }

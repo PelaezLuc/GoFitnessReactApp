@@ -1,4 +1,4 @@
-import './form.css';
+import './css/form.css';
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../components/Footer';
@@ -27,7 +27,7 @@ export const LoginPage = () => {
 
             setUserAuth(data);
 
-            navigate('/');
+            navigate('/app');
         } catch (error) {
             setError(error.message);
         }
@@ -35,32 +35,34 @@ export const LoginPage = () => {
 
     return (
         <>    
-        <ParticlesBackground />
-        <section className="form-register">
+        {/* <ParticlesBackground /> */}
+        <section className="register">
             <h2>GoFit<span className="font-family-app">APP</span></h2>    
                 
                <h4>Inicia Sesión</h4>
-            <form onSubmit={handleForm}>
-                <label htmlFor="email"></label>
-                <input 
-                    className="controls" 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    placeholder="Email"
-                    required
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor="password"></label>
-                <input 
-                    className="controls" 
-                    type="password" 
-                    name="password" 
-                    id="password" 
-                    placeholder="Contraseña"
-                    required
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+            <form className="form" onSubmit={handleForm}>
+                <div className="group">
+                    <input 
+                        className="controls" 
+                        type="text" 
+                        name="email" 
+                        id="email" 
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label className="form-label" htmlFor="email">Email</label>
+                </div>
+                <div className="group">
+                    <input 
+                        className="controls" 
+                        type="password" 
+                        name="password" 
+                        id="password" 
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <label className="form-label" htmlFor="password">Contraseña</label>
+                </div>
                 <Link to={'/register'}>¿Aún no tienes cuenta?</Link>
                 <input className="btn" type="submit" value="Iniciar Sesión"/>
                 {error ? <p>{error}</p> : null}

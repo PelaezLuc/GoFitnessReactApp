@@ -6,6 +6,8 @@ export const Exercise = ({
   addLike,
   removeWorkout,
   setWorkoutLikes,
+  editWorkout,
+  setWorkoutFavs,
 }) => {
   //const video = require ("../../src/video-icon.png");
 
@@ -31,7 +33,10 @@ export const Exercise = ({
         addLike={addLike}
         removeWorkout={removeWorkout}
         setWorkoutLikes={setWorkoutLikes}
+        editWorkout={editWorkout}
+        setWorkoutFavs={setWorkoutFavs}
       />
     </ul>
   );
 };
+

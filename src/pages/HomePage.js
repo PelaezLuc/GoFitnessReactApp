@@ -1,17 +1,20 @@
-import './homePage.css'
-import { Header } from '../components/Header'
-import { Link } from 'react-router-dom'
-import { Footer } from '../components/Footer'
+import './css/homePage.css';
+import { Link } from 'react-router-dom';
+import { HeaderNav } from '../components/HeaderNav';
+
 
 export const HomePage = () => {
     return (
         <>
-        <Header />
+        <header className="homepage-header">
+            <h1 className='header-title'>GoFit<span className="app-text">APP</span></h1>
+            <HeaderNav />
+        </header>
         <section id="landing">
             <article className="landing-div">
-                <h3>Training App</h3>
+                <h3>Traning App</h3>
 
-                <p>Crea y analiza tus experiencias de entrenamiento</p>
+                <p>Crea y monitoriza tus sesiones de entrenamiento</p>
 
                 <div className='btn-container'>
                     <Link to={'/login'}>
@@ -22,31 +25,10 @@ export const HomePage = () => {
                     </Link>
                 </div>
             </article>
-        <footer>
-        <footer>
-        <p>GoFitness APP | 2023 | Daniel Otero - Lucas Peláez | Hack A Boss</p>
-        <ul class="footer-info-list">
-            <li>
-                <h3>Enlaces de interés: </h3>
-                <li><a src="#">Daniel Otero</a></li>
-                <li><a src="#">Lucas Peláez</a></li>
-            </li>
-            <li>
-                <h3>Trabaja con nosotros: </h3>
-                <p>HACK A BOSS</p>
-            </li>
-            <li>
-                <h3>Contacto: </h3>
-                <ul class="contact-list-items">
-                    <li><a src="#"></a></li>
-                    <li><a src="#"></a></li>
-                    <li><a src="#"></a></li>
-                </ul>
-            </li>
-        </ul>
-    </footer>
-        </footer>
         </section>
-        </>
+        <footer className="homepage-footer">
+        <p>GoFitness APP | 2023 | Daniel Otero - Lucas Peláez | Hack A Boss</p>
+    </footer>
+    </>
     )
 }

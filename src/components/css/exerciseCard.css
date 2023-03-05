@@ -33,7 +33,8 @@
     font-size: 1.25rem;
     padding: 0;
     margin-bottom: 1rem;
-    color: #f03835 !important;
+    color: #f03835;
+    color: black;
     font-family: 'Anton';
     text-transform: uppercase;
 }

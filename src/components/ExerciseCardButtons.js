@@ -1,28 +1,34 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
-//import useLikes from '../hooks/useLikes';
+
 import {
   deleteWorkoutService,
   dislikeWorkoutService,
+  favWorkoutService,
   likeWorkoutService,
+  quitfavWorkoutService,
 } from "../services/services";
+import { EditExerciseModal } from "./EditExerciseModal";
 
 export const ExerciseCardButtons = ({
   workout,
-  likes,
-  addLike,
   removeWorkout,
   setWorkoutLikes,
+  editWorkout,
+  setWorkoutFavs,
 }) => {
+  const [stateEditModal, setStateEditModal] = useState(false);
+
   const { userAuth } = useContext(UserAuthContext);
   const token = userAuth.token;
   const id = workout.id;
 
-  const edit = require("../../src/edit-icon.png");
-  const star = require("../../src/bx-fav-icon.png");
-  const heart = require("../../src/bx-like-icon.png");
-  const heartFull = require("../../src/bxs-like-icon.png");
-  const quit = require("../../src/bx-del-icon.png");
+  const edit = require("../../src/icons/edit-icon.png");
+  const star = require("../../src/icons/bx-fav-icon.png");
+  const starFull = require("../../src/icons/bxs-fav-icon.png");
+  const heart = require("../../src/icons/bx-like-icon.png");
+  const heartFull = require("../../src/icons/bxs-like-icon.png");
+  const quit = require("../../src/icons/bx-del-icon.png");
 
   const HandleDeleteWorkoutClick = async () => {
     try {
@@ -34,41 +40,54 @@ export const ExerciseCardButtons = ({
     } catch (error) {
       console.log(error);
     }
-
   };
 
-  const HandleLikeClick = async (mode) => {
+  const HandleFavClick = async (favMode) => {
     try {
-      //   await likeWorkoutService({ id, token });
-      //   window.location.reload();
-
       let response;
 
-      if (mode) {
+      if (favMode) {
+        response = await favWorkoutService({ id, token });
+      } else {
+        response = await quitfavWorkoutService({ id, token });
+      }
+      
+      setWorkoutFavs({ workoutId: id, favs: response, favMode });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const HandleLikeClick = async (likeMode) => {
+    try {
+      let response;
+
+      if (likeMode) {
         response = await likeWorkoutService({ id, token });
       } else {
         response = await dislikeWorkoutService({ id, token });
       }
 
-      setWorkoutLikes({ workoutId: id, likes: response, mode });
+      setWorkoutLikes({ workoutId: id, likes: response, likeMode });
     } catch (error) {
       console.error(error);
-      //TODO: gestionar bien el error
-
-      //   if (
-      //     error.message ===
-      //     "Ya le has dado a like a este ejercicio anteriormente!"
-      //   ) {
-      //     await dislikeWorkoutService({ id, token });
-      //     window.location.reload();
-      //   }
     }
   };
 
   return userAuth.userRole === 1 ? (
+    <>
+       <EditExerciseModal
+        workout={workout}
+        stateEditModal={stateEditModal}
+        setStateEditModal={setStateEditModal}
+        editWorkout={editWorkout}
+      />
     <ul className="button-list">
       <li className="card-btn-container">
-        <button className="card-button">
+        <button 
+          className="card-button"
+          onClick={() => setStateEditModal(!stateEditModal)}
+        >
           <img className="card-button-icon" src={edit} alt="" />
         </button>
       </li>
@@ -77,22 +96,26 @@ export const ExerciseCardButtons = ({
           <img className="card-button-icon" src={quit} alt="" />
         </button>
       </li>
-      <li className="card-btn-container">
-        <button className="card-button">
-          {workout.likes}
-          <img
-            className="card-button-icon"
-            src={workout.userLike ? heartFull : heart}
-            alt=""
-          />
-        </button>
-      </li>
-    </ul>
+      </ul>
+    </>
   ) : (
     <ul className="button-list">
       <li className="card-btn-container">
-        <button className="card-button">
-          <img className="card-button-icon" src={star} alt="" />
+        <button
+          className="card-button"
+          onClick={() => {
+            if (workout.userFav) {
+              HandleFavClick(false);
+            } else {
+              HandleFavClick(true);
+            }
+          }}
+        >
+          <img
+            className="card-button-icon"
+            src={workout.userFav ? starFull : star}
+            alt=""
+          />
         </button>
       </li>
       <li className="card-btn-container">

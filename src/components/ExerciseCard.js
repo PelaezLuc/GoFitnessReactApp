@@ -1,5 +1,5 @@
-import "./exerciseCard.css";
-//import useWorkouts from "../hooks/useWorkouts";
+import "./css/exerciseCard.css";
+// import useWorkouts from "../hooks/useWorkouts";
 import { Exercise } from "./Exercise";
 
 export const ExerciseCard = ({
@@ -7,10 +7,12 @@ export const ExerciseCard = ({
   likes,
   addLike,
   removeWorkout,
+  editWorkout,
   setWorkoutLikes,
-  loading,
+  setWorkoutFavs,
+  // loading,
 }) => {
-  if (loading) return <p>Cargando Workouts...</p>;
+  // if (loading) return <p>Cargando Workouts...</p>;
   return workouts.length ? (
     <>
       {workouts.map((workout) => (
@@ -21,6 +23,8 @@ export const ExerciseCard = ({
             addLike={addLike}
             removeWorkout={removeWorkout}
             setWorkoutLikes={setWorkoutLikes}
+            setWorkoutFavs={setWorkoutFavs}
+            editWorkout={editWorkout}
           />
         </li>
       ))}

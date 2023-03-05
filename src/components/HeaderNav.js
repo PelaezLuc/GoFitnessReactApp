@@ -5,9 +5,11 @@ export const HeaderNav = () => {
         <ul className="nav-list">
             <Link to={'/login'} className="nav-list-link">
                 <li className="nav-list-item">Login</li>
+                <span className="item-line"></span>
             </Link>
             <Link to={'/register'} className="nav-list-link">
-                <li className="nav-list-item">Register</li>
+                <li className="nav-list-item">Registro</li>
+                <span className="item-line"></span>
             </Link>
         </ul>
     )

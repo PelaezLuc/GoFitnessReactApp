@@ -1,10 +1,10 @@
-import './footer.css';
+import './css/footer.css';
 
 
 export const Footer = () => {
     return (
     <footer className="app-footer">
-        <p>GoFitAPP | Daniel Otero | Lucas Pélaez</p>
+        <p>GOFITAPP | Daniel Otero | Lucas Pélaez</p>
     </footer>
     )
 }
